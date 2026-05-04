@@ -30,7 +30,7 @@
 | v7 | 핸드크래프트 피처 concat | 68.61% |
 | **v8** | **전처리 + 핸드크래프트 + Sweep** | **69.13% 🏆** |
 | v9 | v8 + StandardScaler | 68.76% (역효과) |
-| v10 | v8 best config + epoch 100 | 진행 중 |
+| v10 | v8 best config + epoch 100 | 69.13% (v8과 동일, Dev peak Epoch 33) |
 
 ---
 
