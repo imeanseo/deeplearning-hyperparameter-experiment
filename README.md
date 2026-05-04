@@ -37,31 +37,34 @@
 ## 📁 파일 구조
 
 ```
-deeplearning_hw/
-├── Exp1_BoW_Baseline_pf.ipynb          # 베이스라인 (67.38%)
-├── Exp2_BoW_WandB_Sweep.ipynb          # BoW + Sweep (67.86%)
-├── Exp3_TFIDF_WandB_Sweep.ipynb        # TF-IDF + Sweep (68.30%)
-├── Exp3_v6_TFIDF_Ultimate_Preprocessing.ipynb  # 전처리 개선
-├── Exp3_v7_TFIDF_Enhanced.ipynb        # 핸드크래프트 피처
-├── Exp3_v8_TFIDF_Final_Sweep.ipynb     # 최고 성능 (69.13%) 🏆
-├── Exp3_v9_TFIDF_Scaled_Sweep.ipynb    # StandardScaler 시도
-├── Exp3_v10_Final.ipynb                # v8 config + epoch 100
-├── Exp4_GloVe100_WandB_Sweep.ipynb     # GloVe 100d
-├── Exp4_GloVe300_WandB_Sweep.ipynb     # GloVe 300d
-├── Exp5_MiniLM_WandB_Sweep.ipynb       # MiniLM 384d
-├── Exp5_v2_MiniLM_Fixed_WandB_Sweep.ipynb  # MiniLM (seed 고정)
-├── Exp6_MPNet_WandB_Sweep.ipynb        # MPNet 768d
-├── HW1_Results_Summary.ipynb           # 결과 요약
-├── HW2_AllModels.ipynb
-├── HW2_PracticalNLP.ipynb
-├── analyze_data.py                     # 데이터 기초 분석
-├── analyze_data_deep.py                # 데이터 심층 분석
-├── 실험_결과_정리.md                   # 상세 실험 기록
-└── data/
-    ├── train_df.csv
-    ├── val_df.csv
-    └── test_df.csv
+├── notebooks/
+│   ├── Exp1_BoW_Baseline.ipynb          # 베이스라인 (67.38%)
+│   ├── Exp2_BoW_Sweep.ipynb             # BoW + Sweep (67.86%)
+│   ├── Exp3_TFIDF_Sweep.ipynb           # TF-IDF + Sweep (68.30%)
+│   ├── Exp4_GloVe100_Sweep.ipynb        # GloVe 100d (58.48%)
+│   ├── Exp4_GloVe300_Sweep.ipynb        # GloVe 300d (62.31%)
+│   ├── Exp5_MiniLM_Sweep.ipynb          # MiniLM 384d (67.82%)
+│   ├── Exp5_v2_MiniLM_Fixed.ipynb       # MiniLM (seed 고정)
+│   ├── Exp6_MPNet_Sweep.ipynb           # MPNet 768d (66.28%)
+│   └── exp3_improvements/
+│       ├── Exp3_v6_Preprocessing.ipynb  # 백틱/슬랭 전처리 (68.36%)
+│       ├── Exp3_v7_Handcraft.ipynb      # 핸드크래프트 피처 (68.61%)
+│       ├── Exp3_v8_Final_Sweep.ipynb    # 최고 성능 (69.13%) 🏆
+│       ├── Exp3_v9_Scaled.ipynb         # StandardScaler 시도 (68.76%)
+│       └── Exp3_v10_Final.ipynb         # v8 config + epoch 100
+├── analysis/
+│   ├── analyze_data.py                  # 데이터 기초 분석
+│   └── analyze_data_deep.py             # 데이터 심층 분석
+├── docs/
+│   ├── 실험_결과_정리.md                # 상세 실험 기록
+│   ├── HW1_Results_Summary.ipynb
+│   ├── HW2_AllModels.ipynb
+│   └── HW2_PracticalNLP.ipynb
+├── README.md
+└── .gitignore
 ```
+
+> ⚠️ 모델 체크포인트(`.pt`), 데이터셋(`data/`), W&B 로그(`wandb/`)는 `.gitignore`로 제외됩니다.
 
 ---
 
@@ -105,9 +108,9 @@ wandb.login()
 ```
 
 ### 추천 실행 순서
-1. `Exp1_BoW_Baseline_pf.ipynb` — 베이스라인 확인
-2. `Exp3_TFIDF_WandB_Sweep.ipynb` — 핵심 실험
-3. `Exp3_v8_TFIDF_Final_Sweep.ipynb` — 최고 성능 재현
+1. `notebooks/Exp1_BoW_Baseline.ipynb` — 베이스라인 확인
+2. `notebooks/Exp3_TFIDF_Sweep.ipynb` — 핵심 실험
+3. `notebooks/exp3_improvements/Exp3_v8_Final_Sweep.ipynb` — 최고 성능 재현
 
 > **Colab GPU 권장**: T4 기준 실험당 약 30~90분 소요
 
