@@ -13,9 +13,9 @@ def main() -> None:
     exp_main = pd.DataFrame(
         [
             ("Exp1", "BoW Baseline", 67.38),
-            ("Exp2", "BoW + Sweep", 68.26),
+            ("Exp2", "BoW + Sweep", 68.70),
             ("Exp3", "TF-IDF + Sweep", 68.30),
-            ("Exp4", "GloVe300 + Sweep", 62.31),
+            ("Exp4", "GloVe300 + Sweep", 62.00),
             ("Exp5", "MiniLM + Sweep", 67.82),
             ("Exp6", "MPNet + Sweep", 66.28),
         ],

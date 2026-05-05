@@ -42,16 +42,16 @@
 | 실험 | 방법 | Test Accuracy | Baseline 대비 |
 |---|---|---:|---:|
 | Exp1 | BoW Baseline | 67.38% | - |
-| Exp2 | BoW + Sweep | 68.26% | +0.88%p |
+| Exp2 | BoW + Sweep | 68.70% | +1.32%p |
 | Exp3 | TF-IDF + Sweep | 68.30% | +0.92%p |
-| Exp4 | GloVe300 + Sweep | 62.31% | -5.07%p |
+| Exp4 | GloVe300 + Sweep | 62.00% | -5.38%p |
 | Exp5 | MiniLM + Sweep | 67.82% | +0.44%p |
 | Exp6 | MPNet + Sweep | 66.28% | -1.10%p |
 
 ### 과제 조건 충족 여부
 
 - **충족**
-- 근거: Exp2(68.26%), Exp3(68.30%), Exp5(67.82%)가 baseline(67.38%)보다 높음
+- 근거: Exp2(68.70%), Exp3(68.30%), Exp5(67.82%)가 baseline(67.38%)보다 높음
 
 ---
 
@@ -65,7 +65,7 @@
 ### Exp2. BoW + Sweep
 - 변경 이유: 하이퍼파라미터 자동 탐색으로 일반화 성능 개선
 - 핵심 파라미터: `lr`, `hidden_size`, `dropout`, `batch_size`, `num_epochs`, `weight_decay`
-- 결과: 68.26% (+0.88%p)
+- 결과: 68.70% (+1.32%p)
 - 해석: baseline 대비 개선 성공
 
 ### Exp3. TF-IDF + Sweep
@@ -75,7 +75,7 @@
 
 ### Exp4. GloVe300 + Sweep
 - 변경 이유: 분산표현 임베딩 활용 시도
-- 결과: 62.31%
+- 결과: 62.00%
 - 해석: 평균 임베딩 과정에서 순서/부정 패턴 정보 손실
 
 ### Exp5. MiniLM + Sweep
