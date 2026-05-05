@@ -15,7 +15,7 @@
 | 실험 | 벡터화 방법 | Test 정확도 | 베이스라인 대비 |
 |------|------------|------------|---------------|
 | Exp1 | BoW (베이스라인) | 67.38% | — |
-| Exp2 | BoW + W&B Sweep | 67.86% | +0.48%p |
+| Exp2 | BoW + W&B Sweep | 68.26% | +0.88%p |
 | **Exp3** | **TF-IDF + W&B Sweep** | **68.30%** | **+0.92%p ⭐** |
 | Exp4 | GloVe 300d + W&B Sweep | 62.31% | -5.07%p |
 | Exp5 | MiniLM 384d + W&B Sweep | 67.82% | +0.44%p |
@@ -39,7 +39,7 @@
 ```
 ├── notebooks/
 │   ├── Exp1_BoW_Baseline.ipynb          # 베이스라인 (67.38%)
-│   ├── Exp2_BoW_Sweep.ipynb             # BoW + Sweep (67.86%)
+│   ├── Exp2_BoW_Sweep.ipynb             # BoW + Sweep (68.26%)
 │   ├── Exp3_TFIDF_Sweep.ipynb           # TF-IDF + Sweep (68.30%)
 │   ├── Exp4_GloVe100_Sweep.ipynb        # GloVe 100d (58.48%)
 │   ├── Exp4_GloVe300_Sweep.ipynb        # GloVe 300d (62.31%)
