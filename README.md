@@ -15,11 +15,12 @@
 | 실험 | 벡터화 방법 | Test 정확도 | 베이스라인 대비 |
 |------|------------|------------|---------------|
 | Exp1 | BoW (베이스라인) | 67.38% | — |
-| Exp2 | BoW + W&B Sweep | 68.70% | +1.32%p |
-| **Exp3** | **TF-IDF + W&B Sweep** | **68.30%** | **+0.92%p ⭐** |
+| Exp2 | BoW + W&B Sweep | 68.26% | +0.88%p |
+| Exp3 | TF-IDF + W&B Sweep | 68.30% | +0.92%p |
 | Exp4 | GloVe 300d + W&B Sweep | 62.00% | -5.38%p |
-| Exp5 | MiniLM 384d + W&B Sweep | 67.82% | +0.44%p |
+| Exp5 | MiniLM 384d + W&B Sweep | 66.07% | -1.31%p |
 | Exp6 | MPNet 768d + W&B Sweep | 66.28% | -1.10%p |
+| **Exp3-v8** | **TF-IDF + 전처리 + 핸드크래프트 + Sweep** | **69.13%** | **+1.75%p 🏆** |
 
 ### 전처리 개선 실험 (Exp3 기반)
 
@@ -37,25 +38,28 @@
 ## 📁 파일 구조
 
 ```
+├── submit/                              # 최종 제출 파일
+│   ├── W5_HW1_PracticalNLP_202200274_고민서.ipynb  # HW1 제출본 (Exp3-v8, 69.13% 🏆)
+│   └── W5_HW2_PracticalNLP_202200274_고민서.ipynb  # HW2 제출본 (감성 예측 구현)
 ├── notebooks/
 │   ├── Exp1_BoW_Baseline.ipynb          # 베이스라인 (67.38%)
-│   ├── Exp2_BoW_Sweep.ipynb             # BoW + Sweep (68.70%)
+│   ├── Exp2_BoW_Sweep.ipynb             # BoW + Sweep (68.26%)
 │   ├── Exp3_TFIDF_Sweep.ipynb           # TF-IDF + Sweep (68.30%)
-│   ├── Exp4_GloVe100_Sweep.ipynb        # GloVe 100d (58.48%)
+│   ├── Exp4_GloVe100_Sweep.ipynb        # GloVe 100d
 │   ├── Exp4_GloVe300_Sweep.ipynb        # GloVe 300d (62.00%)
-│   ├── Exp5_MiniLM_Sweep.ipynb          # MiniLM 384d (67.82%)
+│   ├── Exp5_MiniLM_Sweep.ipynb          # MiniLM 384d (66.07%)
 │   ├── Exp5_v2_MiniLM_Fixed.ipynb       # MiniLM (seed 고정)
 │   ├── Exp6_MPNet_Sweep.ipynb           # MPNet 768d (66.28%)
 │   └── exp3_improvements/
 │       ├── Exp3_v6_Preprocessing.ipynb  # 백틱/슬랭 전처리 (68.36%)
 │       ├── Exp3_v7_Handcraft.ipynb      # 핸드크래프트 피처 (68.61%)
-│       ├── Exp3_v8_Final_Sweep.ipynb    # 최고 성능 (69.13%) 🏆
 │       ├── Exp3_v9_Scaled.ipynb         # StandardScaler 시도 (68.76%)
-│       └── Exp3_v10_Final.ipynb         # v8 config + epoch 100
+│       └── Exp3_v10_Final.ipynb         # v8 config + epoch 100 (69.13%)
 ├── analysis/
 │   ├── analyze_data.py                  # 데이터 기초 분석
 │   └── analyze_data_deep.py             # 데이터 심층 분석
 ├── docs/
+│   ├── HW1_Report_Draft.md              # 실험 보고서
 │   ├── 실험_결과_정리.md                # 상세 실험 기록
 │   ├── HW1_Results_Summary.ipynb
 │   ├── HW2_AllModels.ipynb
