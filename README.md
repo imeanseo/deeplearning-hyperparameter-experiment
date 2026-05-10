@@ -50,6 +50,8 @@
 │   ├── Exp5_MiniLM_Sweep.ipynb          # MiniLM 384d (66.07%)
 │   ├── Exp5_v2_MiniLM_Fixed.ipynb       # MiniLM (seed 고정)
 │   ├── Exp6_MPNet_Sweep.ipynb           # MPNet 768d (66.28%)
+│   ├── exp2_improvements/
+│   │   └── Exp2_v2_BoW_Enhanced_Sweep.ipynb  # BoW 추가 개선 sweep
 │   └── exp3_improvements/
 │       ├── Exp3_v6_Preprocessing.ipynb  # 백틱/슬랭 전처리 (68.36%)
 │       ├── Exp3_v7_Handcraft.ipynb      # 핸드크래프트 피처 (68.61%)
