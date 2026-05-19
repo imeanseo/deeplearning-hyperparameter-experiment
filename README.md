@@ -12,15 +12,24 @@
 
 ## 📊 실험 결과 요약
 
-| 실험 | 벡터화 방법 | Test 정확도 | 베이스라인 대비 |
-|------|------------|------------|---------------|
-| Exp1 | BoW (베이스라인) | 67.38% | — |
-| Exp2 | BoW + W&B Sweep | 68.26% | +0.88%p |
-| Exp3 | TF-IDF + W&B Sweep | 68.30% | +0.92%p |
-| Exp4 | GloVe 300d + W&B Sweep | 62.00% | -5.38%p |
-| Exp5 | MiniLM 384d + W&B Sweep | 66.07% | -1.31%p |
-| Exp6 | MPNet 768d + W&B Sweep | 66.28% | -1.10%p |
-| **Exp3-v8** | **TF-IDF + 전처리 + 핸드크래프트 + Sweep** | **69.13%** | **+1.75%p 🏆** |
+| 실험 | 벡터화 방법 | Dev 정확도 | Test 정확도 | 베이스라인 대비 |
+|------|------------|-----------|------------|---------------|
+| Exp1 | BoW (베이스라인) | — | 67.38% | — |
+| Exp2 | BoW + W&B Sweep | — | 68.26% | +0.88%p |
+| Exp3 | TF-IDF + W&B Sweep | — | 68.30% | +0.92%p |
+| Exp4 | GloVe 300d + W&B Sweep | — | 62.00% | -5.38%p |
+| Exp5 | MiniLM 384d + W&B Sweep | — | 66.07% | -1.31%p |
+| Exp6 | MPNet 768d + W&B Sweep | — | 66.28% | -1.10%p |
+| **Exp3-v8** | **TF-IDF + 전처리 + 핸드크래프트 + Sweep** | **70.05%** | **69.13%** | **+1.75%p 🏆** |
+
+> **최종 제출 모델**: Exp3-v8 (`submit/W5_HW1_PracticalNLP_202200274_고민서.ipynb`)
+
+### Ablation: BoW vs TF-IDF (동일 전처리·핸드크래프트)
+
+| 실험 | 벡터화 | Test 정확도 | 해석 |
+|------|--------|------------|------|
+| Exp2-v2 | BoW + 전처리 + 핸드크래프트 + Sweep | 68.70% | 동일 피처 엔지니어링을 BoW에 적용 |
+| Exp3-v8 | TF-IDF + 전처리 + 핸드크래프트 + Sweep | **69.13%** | TF-IDF가 +0.43%p 우위 |
 
 ### 전처리 개선 실험 (Exp3 기반)
 
@@ -39,8 +48,9 @@
 
 ```
 ├── submit/                              # 최종 제출 파일
-│   ├── W5_HW1_PracticalNLP_202200274_고민서.ipynb  # HW1 제출본 (Exp3-v8, 69.13% 🏆)
-│   └── W5_HW2_PracticalNLP_202200274_고민서.ipynb  # HW2 제출본 (감성 예측 구현)
+│   ├── W5_HW1_PracticalNLP_202200274_고민서.ipynb  # HW1 제출본 (Exp3-v8, Dev 70.05% / Test 69.13% 🏆)
+│   ├── W5_HW1_PracticalNLP_202200274_고민서.pdf    # HW1 실험 보고서
+│   └── W5_HW2_PracticalNLP_202200274_고민서.ipynb  # HW2 제출본 (Exp3-v8 감성 예측)
 ├── notebooks/
 │   ├── Exp1_BoW_Baseline.ipynb          # 베이스라인 (67.38%)
 │   ├── Exp2_BoW_Sweep.ipynb             # BoW + Sweep (68.26%)
@@ -57,6 +67,7 @@
 │       ├── Exp3_v7_Handcraft.ipynb      # 핸드크래프트 피처 (68.61%)
 │       ├── Exp3_v9_Scaled.ipynb         # StandardScaler 시도 (68.76%)
 │       └── Exp3_v10_Final.ipynb         # v8 config + epoch 100 (69.13%)
+│   # Exp3-v8 최종 학습 노트북 → submit/W5_HW1_...ipynb 로 제출
 ├── analysis/
 │   ├── analyze_data.py                  # 데이터 기초 분석
 │   └── analyze_data_deep.py             # 데이터 심층 분석
@@ -116,7 +127,9 @@ wandb.login()
 ### 추천 실행 순서
 1. `notebooks/Exp1_BoW_Baseline.ipynb` — 베이스라인 확인
 2. `notebooks/Exp3_TFIDF_Sweep.ipynb` — 핵심 실험
-3. `notebooks/exp3_improvements/Exp3_v8_Final_Sweep.ipynb` — 최고 성능 재현
+3. `submit/W5_HW1_PracticalNLP_202200274_고민서.ipynb` — 최고 성능(Exp3-v8) 재현
+   - W&B Sweep 없이 검증: 노트북 내 **「교수님 검증용」** 셀 실행 (Dev 70.05% / Test 69.13%)
+4. `submit/W5_HW2_PracticalNLP_202200274_고민서.ipynb` — 감성 예측 데모 (체크포인트 `best_model_exp3_v8_final.pt` 필요)
 
 > **Colab GPU 권장**: T4 기준 실험당 약 30~90분 소요
 
